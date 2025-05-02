@@ -1,0 +1,15 @@
+@@ -0,0 +1,14 @@
+ using System;
+ 
+ class M
+ {
+     static void Main()
+     {
+         Console.Write("مساحت فضای نگارخانه (مترمربع) را وارد کنید: ");
+         double area = Convert.ToDouble(Console.ReadLine());
+         
+         // محاسبه طول هر ضلع (با توجه به اینکه نگارخانه مربعی است)
+         double side = Math.Sqrt(area);
+         Console.WriteLine("اندازه هر ضلع نگارخانه: {0} متر", side);
+     }
+ }
