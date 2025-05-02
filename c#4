@@ -1,0 +1,21 @@
+@@ -0,0 +1,20 @@
+ using System;
+ 
+ class M
+ {
+     static void Main()
+     {
+         Console.Write("لطفاً محیط حوض فواره (متر) را وارد کنید: ");
+         double poolPerimeter = Convert.ToDouble(Console.ReadLine());
+         
+         double wallHeightCM = 30.0;
+         
+         double tileSizeCM = 15.0;
+         int tilesHorizontal = (int)Math.Ceiling((poolPerimeter * 100) / tileSizeCM);
+         
+         int tilesVertical = (int)Math.Ceiling(wallHeightCM / tileSizeCM);
+         
+         int totalWallTiles = tilesHorizontal * tilesVertical;
+         Console.WriteLine("تعداد کاشی لازم براي پوشاندن ديواره حوض فواره: {0}", totalWallTiles);
+     }
+ }
