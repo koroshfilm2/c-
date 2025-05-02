@@ -1,0 +1,20 @@
+@@ -0,0 +1,19 @@
+ using System;
+ 
+ class M
+ {
+     static void Main()
+     {
+         Console.Write("مساحت فضای نگارخانه (مترمربع) را وارد کنید: ");
+         double area = Convert.ToDouble(Console.ReadLine());
+         
+         double side = Math.Sqrt(area);
+         double sideCM = side * 100;
+       
+         int tilesHorizontal = (int)Math.Ceiling(sideCM / 60.0); // تقسیم طول بر 60 سانتی‌متر
+         int tilesVertical   = (int)Math.Ceiling(sideCM / 30.0); // تقسیم عرض بر 30 سانتی‌متر
+         
+         int totalTiles = tilesHorizontal * tilesVertical;
+         Console.WriteLine("تعداد سراميك مورد نياز براي فرش كردن نگارخانه: {0}", totalTiles);
+     }
+ }
