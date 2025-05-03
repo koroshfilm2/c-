@@ -1,0 +1,83 @@
+using System;
+
+public class IceCreamShop
+{
+    public static void Main(string[] args)
+    {
+        // قیمت بستنی ها
+        int priceVanilla = 5000;
+        int priceChocolate = 6000;
+        int priceStrawberry = 5500;
+
+        // دریافت تعداد مشتری ها
+        Console.Write("چند مشتری امروز اومدن؟ ");
+        int numCustomers = int.Parse(Console.ReadLine());
+
+        // متغیرهای ذخیره سازی
+        int totalRevenue = 0;
+        int totalVanilla = 0;
+        int totalChocolate = 0;
+        int totalStrawberry = 0;
+
+        // حلقه برای هر مشتری
+        for (int i = 0; i < numCustomers; i++)
+        {
+            Console.WriteLine("\nمشتری شماره " + (i + 1) + ":");
+            Console.Write("چند تا وانیلی؟ ");
+            int vanilla = int.Parse(Console.ReadLine());
+            Console.Write("چند تا شکلاتی؟ ");
+            int chocolate = int.Parse(Console.ReadLine());
+            Console.Write("چند تا توت‌فرنگی؟ ");
+            int strawberry = int.Parse(Console.ReadLine());
+
+            // محاسبه درآمد مشتری
+            int customerRevenue = (vanilla * priceVanilla) + (chocolate * priceChocolate) + (strawberry * priceStrawberry);
+
+            // به روز رسانی مجموع درآمد
+            totalRevenue += customerRevenue;
+
+            // به روز رسانی تعداد بستنی ها
+            totalVanilla += vanilla;
+            totalChocolate += chocolate;
+            totalStrawberry += strawberry;
+        }
+
+        // تعیین محبوب ترین طعم
+        string mostPopular;
+        if (totalVanilla > totalChocolate && totalVanilla > totalStrawberry)
+        {
+            mostPopular = "وانیلی";
+        }
+        else if (totalChocolate > totalVanilla && totalChocolate > totalStrawberry)
+        {
+            mostPopular = "شکلاتی";
+        }
+        else if (totalStrawberry > totalVanilla && totalStrawberry > totalChocolate)
+        {
+            mostPopular = "توت‌فرنگی";
+        }
+        else if (totalVanilla == totalChocolate && totalVanilla > totalStrawberry)
+        {
+            mostPopular = "وانیلی و شکلاتی (برابری!)";
+        }
+        else if (totalVanilla == totalStrawberry && totalVanilla > totalChocolate)
+        {
+            mostPopular = "وانیلی و توت‌فرنگی (برابری!)";
+        }
+        else if (totalChocolate == totalStrawberry && totalChocolate > totalVanilla)
+        {
+            mostPopular = "شکلاتی و توت‌فرنگی (برابری!)";
+        }
+        else
+        {
+            mostPopular = "وانیلی، شکلاتی و توت‌فرنگی (برابری!)";
+        }
+
+        // چاپ نتایج
+        Console.WriteLine("\nامروز فروش کل فروشگاه: " + totalRevenue + " تومان");
+        Console.WriteLine("وانیلی فروخته شده: " + totalVanilla + " عدد");
+        Console.WriteLine("شکلاتی فروخته شده: " + totalChocolate + " عدد");
+        Console.WriteLine("توت‌فرنگی فروخته شده: " + totalStrawberry + " عدد");
+        Console.WriteLine("محبوب‌ترین طعم امروز: " + mostPopular);
+    }
+}
