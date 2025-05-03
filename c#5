@@ -1,0 +1,54 @@
+# قیمت بستنی ها
+price_vanilla = 5000
+price_chocolate = 6000
+price_strawberry = 5500
+
+# دریافت تعداد مشتری ها
+num_customers = int(input("چند مشتری امروز اومدن؟ "))
+
+# متغیرهای ذخیره سازی
+total_revenue = 0
+total_vanilla = 0
+total_chocolate = 0
+total_strawberry = 0
+
+# حلقه برای هر مشتری
+for i in range(num_customers):
+    print(f"\nمشتری شماره {i+1}:")
+    vanilla = int(input("چند تا وانیلی؟ "))
+    chocolate = int(input("چند تا شکلاتی؟ "))
+    strawberry = int(input("چند تا توت‌فرنگی؟ "))
+
+    # محاسبه درآمد مشتری
+    customer_revenue = (vanilla * price_vanilla) + (chocolate * price_chocolate) + (strawberry * price_strawberry)
+
+    # به روز رسانی مجموع درآمد
+    total_revenue += customer_revenue
+
+    # به روز رسانی تعداد بستنی ها
+    total_vanilla += vanilla
+    total_chocolate += chocolate
+    total_strawberry += strawberry
+
+# تعیین محبوب ترین طعم
+if total_vanilla > total_chocolate and total_vanilla > total_strawberry:
+    most_popular = "وانیلی"
+elif total_chocolate > total_vanilla and total_chocolate > total_strawberry:
+    most_popular = "شکلاتی"
+elif total_strawberry > total_vanilla and total_strawberry > total_chocolate:
+    most_popular = "توت‌فرنگی"
+elif total_vanilla == total_chocolate and total_vanilla > total_strawberry:
+    most_popular = "وانیلی و شکلاتی (برابری!)"
+elif total_vanilla == total_strawberry and total_vanilla > total_chocolate:
+    most_popular = "وانیلی و توت‌فرنگی (برابری!)"
+elif total_chocolate == total_strawberry and total_chocolate > total_vanilla:
+    most_popular = "شکلاتی و توت‌فرنگی (برابری!)"
+else:
+    most_popular = "وانیلی، شکلاتی و توت‌فرنگی (برابری!)"
+
+# چاپ نتایج
+print(f"\nامروز فروش کل فروشگاه: {total_revenue} تومان")
+print(f"وانیلی فروخته شده: {total_vanilla} عدد")
+print(f"شکلاتی فروخته شده: {total_chocolate} عدد")
+print(f"توت‌فرنگی فروخته شده: {total_strawberry} عدد")
+print(f"محبوب‌ترین طعم امروز: {most_popular}")
